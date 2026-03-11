@@ -40,31 +40,25 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   const columns = 5; // Number of staggered columns
 
-  // Animation variants for the Primary Color Layer
-  const layerOneVariants = {
-    initial: { scaleY: 1 },
-    animate: (i: number) => ({
-      scaleY: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.76, 0, 0.24, 1], // Cinematic easing
-        delay: 0.05 * i,
-      },
-    }),
-  };
+  // Animation function for the Primary Color Layer
+  const getLayerOneAnimation = (i: number) => ({
+    scaleY: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.76, 0, 0.24, 1] as [number, number, number, number],
+      delay: 0.05 * i,
+    },
+  });
 
-  // Animation variants for the Black Color Layer
-  const layerTwoVariants = {
-    initial: { scaleY: 1 },
-    animate: (i: number) => ({
-      scaleY: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.76, 0, 0.24, 1],
-        delay: 0.05 * i + 0.15, // Slightly trails behind layer one
-      },
-    }),
-  };
+  // Animation function for the Black Color Layer
+  const getLayerTwoAnimation = (i: number) => ({
+    scaleY: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.76, 0, 0.24, 1] as [number, number, number, number],
+      delay: 0.05 * i + 0.15,
+    },
+  });
 
   return (
     <>
@@ -75,18 +69,14 @@ export default function Template({ children }: { children: React.ReactNode }) {
             {/* Red / Primary Layer */}
             <motion.div
               className="absolute inset-0 w-full h-full bg-primary origin-bottom"
-              custom={i}
-              variants={layerOneVariants}
-              initial="initial"
-              animate="animate"
+              initial={{ scaleY: 1 }}
+              animate={getLayerOneAnimation(i)}
             />
             {/* Black Layer */}
             <motion.div
               className="absolute inset-0 w-full h-full bg-[#0d0d0f] origin-bottom"
-              custom={i}
-              variants={layerTwoVariants}
-              initial="initial"
-              animate="animate"
+              initial={{ scaleY: 1 }}
+              animate={getLayerTwoAnimation(i)}
               onAnimationComplete={() => {
                 // Unlock scroll when the very last column finishes animating
                 if (i === columns - 1) setIsAnimating(false);
