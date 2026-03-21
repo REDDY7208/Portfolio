@@ -3,23 +3,7 @@
 import React from "react";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 
-const personalProjects = [
-  {
-    title: "Neo-Vim Configurator",
-    category: "Tooling",
-    color: "bg-purple-900/40",
-    border: "border-purple-500/20",
-    description:
-      "A custom Lua-based configuration for high-performance coding.",
-  },
-  {
-    title: "Rust Game Engine",
-    category: "Systems",
-    color: "bg-fuchsia-900/40",
-    border: "border-fuchsia-500/20",
-    description: "Developing a lightweight 2D game engine using Rust and WGPU.",
-  },
-];
+const personalProjects: any[] = [];
 
 const PersonalWorks = () => {
   return (
@@ -82,6 +66,14 @@ const PersonalWorks = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Coming Soon Section */}
+        <div className="mt-12 p-8 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm text-center">
+          <p className="text-primary font-medium tracking-wider animate-pulse flex items-center justify-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-primary"></span>
+            PROJECT UPDATES COMING SOON
+          </p>
         </div>
       </div>
     </main>

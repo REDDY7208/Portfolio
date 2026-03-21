@@ -58,7 +58,7 @@ const TestimonialsPage = () => {
   const activeTestimonial = testimonials[activeIndex];
 
   return (
-    <main className="min-h-screen lg:h-screen pt-32 pb-10 px-8 md:px-12 flex flex-col xl:flex-row gap-10 lg:gap-20 items-center lg:overflow-hidden relative">
+    <main className="min-h-screen lg:h-screen pt-32 pb-10 px-8 md:px-12 flex flex-col xl:flex-row gap-10 lg:gap-20 items-center overflow-x-hidden relative w-full">
       {/* Background Image / Glow overlay for the left side */}
       <div className="absolute inset-y-0 -left-[10%] w-[120%] xl:w-2/3 z-0 pointer-events-none opacity-60 xl:opacity-90">
         <Image
