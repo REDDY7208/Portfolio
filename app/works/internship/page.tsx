@@ -3,23 +3,7 @@
 import React from "react";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 
-const internshipProjects = [
-  {
-    title: "Junior Cloud Architect",
-    category: "Cloud Services",
-    color: "bg-orange-900/40",
-    border: "border-orange-500/20",
-    description: "Designing and deploying serverless applications on AWS.",
-  },
-  {
-    title: "Data Analysis Intern",
-    category: "Data Science",
-    color: "bg-amber-900/40",
-    border: "border-amber-500/20",
-    description:
-      "Analyzing large datasets to provide actionable business insights.",
-  },
-];
+const internshipProjects: any[] = [];
 
 const InternshipWorks = () => {
   return (
@@ -82,6 +66,14 @@ const InternshipWorks = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Coming Soon Section */}
+        <div className="mt-12 p-8 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm text-center">
+          <p className="text-primary font-medium tracking-wider animate-pulse flex items-center justify-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-primary"></span>
+            PROJECT UPDATES COMING SOON
+          </p>
         </div>
       </div>
     </main>

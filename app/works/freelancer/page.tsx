@@ -3,24 +3,7 @@
 import React from "react";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 
-const freelancerProjects = [
-  {
-    title: "E-Commerce Brand Redesign",
-    category: "Web Design",
-    color: "bg-emerald-900/40",
-    border: "border-emerald-500/20",
-    description:
-      "Complete digital transformation for a boutique fashion brand.",
-  },
-  {
-    title: "SaaS Dashboard Architecture",
-    category: "Full Stack",
-    color: "bg-teal-900/40",
-    border: "border-teal-500/20",
-    description:
-      "Scalable backend and intuitive UI for a project management SaaS.",
-  },
-];
+const freelancerProjects: { title: string; category: string; color: string; border: string; description: string }[] = [];
 
 const FreelancerWorks = () => {
   return (
@@ -83,6 +66,14 @@ const FreelancerWorks = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Coming Soon Section */}
+        <div className="mt-12 p-8 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-sm text-center">
+          <p className="text-emerald-400 font-medium tracking-wider animate-pulse flex items-center justify-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+            PROJECT UPDATES COMING SOON
+          </p>
         </div>
       </div>
     </main>

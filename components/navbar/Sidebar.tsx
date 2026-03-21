@@ -25,7 +25,7 @@ function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-4 md:right-8 lg:top-1/2 lg:-translate-y-1/2 z-50 w-[90%] max-w-sm lg:w-auto lg:max-w-none">
+    <nav className="fixed bottom-2 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:right-4 md:right-8 lg:top-1/2 lg:-translate-y-1/2 z-50 w-[90%] max-w-sm lg:w-auto lg:max-w-none">
       <div className="flex flex-row lg:flex-col justify-between lg:justify-center items-center bg-[#0d0d0f]/80 backdrop-blur-md rounded-full px-6 py-4 lg:px-3 lg:py-6 gap-x-2 lg:gap-x-0 lg:gap-y-8 border border-white/5 shadow-2xl">
         {navItems.map((item, index) => {
           const Icon = item.icon;
