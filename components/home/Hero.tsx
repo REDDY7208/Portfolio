@@ -24,7 +24,7 @@ const Hero = () => {
           </p>
         </div>
 
-        <Link href="/projects">
+        <Link href="/works">
           <div className="flex justify-center xl:justify-start pt-10 xl:pt-0 xl:absolute xl:bottom-12 xl:left-0">
             <div className="relative w-32 h-32 xl:w-40 xl:h-40 group cursor-pointer">
               {/* Spinning Text Badge */}
