@@ -1,10 +1,53 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (err: unknown) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
+    }
+  };
+
   return (
     <main className="min-h-screen lg:h-screen pt-32 pb-10 px-8 md:px-12 flex flex-col xl:flex-row gap-10 lg:gap-20 items-center overflow-x-hidden lg:overflow-hidden relative">
       {/* Background Image / Glow overlay for the left side */}
@@ -42,7 +85,9 @@ const ContactPage = () => {
                 <p className="text-xs text-gray-500 uppercase tracking-widest font-bold">
                   Email
                 </p>
-                <p className="text-gray-200 break-all">praveenkumarreddy9866@gmail.com</p>
+                <p className="text-gray-200 break-all">
+                  praveenkumarreddy9866@gmail.com
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-4 group">
@@ -73,16 +118,25 @@ const ContactPage = () => {
 
       {/* Right Column Content - Contact Form */}
       <div className="flex-[1.2] relative z-10 flex flex-col justify-center w-full xl:pl-10 mt-10 xl:mt-0">
-        <form className="w-full flex flex-col gap-5 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 rounded-2xl border border-white/5">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full flex flex-col gap-5 bg-[#0a0a0c]/80 backdrop-blur-md p-8 md:p-10 rounded-2xl border border-white/5"
+        >
           <div className="flex flex-col md:flex-row gap-5">
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               placeholder="Your Name"
               className="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 outline-none focus:border-primary/50 transition-colors hover:border-white/20 text-white placeholder:text-gray-500 text-sm"
               required
             />
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Your Email"
               className="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 outline-none focus:border-primary/50 transition-colors hover:border-white/20 text-white placeholder:text-gray-500 text-sm"
               required
@@ -90,23 +144,37 @@ const ContactPage = () => {
           </div>
           <input
             type="text"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
             placeholder="Subject"
             className="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 outline-none focus:border-primary/50 transition-colors hover:border-white/20 text-white placeholder:text-gray-500 text-sm"
             required
           />
           <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
             placeholder="Your Message"
             rows={5}
             className="w-full bg-white/5 border border-white/10 rounded-lg px-5 py-4 outline-none focus:border-primary/50 transition-colors hover:border-white/20 text-white placeholder:text-gray-500 text-sm resize-none"
             required
           ></textarea>
 
+          {status === "success" && (
+            <p className="text-green-400 text-sm">Message sent successfully!</p>
+          )}
+          {status === "error" && (
+            <p className="text-red-400 text-sm">{errorMsg}</p>
+          )}
+
           <div className="mt-4 flex justify-end">
             <button
               type="submit"
-              className="px-8 py-4 rounded-lg bg-primary text-white font-medium tracking-wide hover:bg-primary/90 transition-all duration-300 w-full md:w-auto shadow-[0_0_20px_rgba(241,48,36,0.2)]"
+              disabled={status === "loading"}
+              className="px-8 py-4 rounded-lg bg-primary text-white font-medium tracking-wide hover:bg-primary/90 transition-all duration-300 w-full md:w-auto shadow-[0_0_20px_rgba(241,48,36,0.2)] disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Send Message
+              {status === "loading" ? "Sending..." : "Send Message"}
             </button>
           </div>
         </form>

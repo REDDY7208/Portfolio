@@ -20,16 +20,18 @@ export async function POST(req) {
 
     // 2. Send Email via Nodemailer
     const transporter = nodemailer.createTransport({
-      service: "gmail", // or your preferred service
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: process.env.SMTP_SECURE === "true",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Send to yourself
+      from: process.env.SMTP_FROM_EMAIL,
+      to: process.env.SMTP_TO_EMAIL,
       subject: `New Contact Form Submission: ${subject}`,
       html: `
         <h3>New Contact Form Submission</h3>
@@ -49,7 +51,7 @@ export async function POST(req) {
     console.error("Contact API Error:", error);
     return NextResponse.json(
       { success: false, error: error.message },
-      { status: 400 }
+      { status: 400 },
     );
   }
 }
