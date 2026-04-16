@@ -2,10 +2,18 @@
 
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
+import Script from "next/script";
 
 const WorksPage = () => {
   return (
-    <main className="min-h-screen pt-32 pb-20 px-8 md:px-12 flex flex-col xl:flex-row gap-10 lg:gap-20 items-center relative overflow-x-hidden">
+    <>
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2338863848634036"
+        crossOrigin="anonymous"
+        strategy="beforeInteractive"
+      />
+      <main className="min-h-screen pt-32 pb-20 px-8 md:px-12 flex flex-col xl:flex-row gap-10 lg:gap-20 items-center relative overflow-x-hidden">
       {/* Background Image / Glow overlay for the left side */}
       <div className="absolute inset-y-0 -left-[10%] w-[120%] xl:w-2/3 z-0 pointer-events-none opacity-60 xl:opacity-90">
         <Image
