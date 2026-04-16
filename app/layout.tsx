@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2338863848634036"
-     crossorigin="anonymous"></script>
+     crossOrigin="anonymous"></script>
       </head>
       <body
         className={`${sora.variable} antialiased min-h-screen lg:h-screen overflow-x-hidden lg:overflow-hidden bg-background text-text font-sora`}
