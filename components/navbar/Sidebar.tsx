@@ -7,6 +7,7 @@ import {
   MessageSquareText,
   User,
   Workflow,
+  Briefcase,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,6 +17,7 @@ const navItems = [
   { icon: Home, label: "Home", href: "/" },
   { icon: User, label: "About", href: "/about" },
   { icon: LayoutGrid, label: "Services", href: "/services" },
+  { icon: Briefcase, label: "Business", href: "/business" },
   { icon: Workflow, label: "Projects", href: "/works" },
   { icon: MessageSquareText, label: "Testimonials", href: "/testimonials" },
   { icon: Mail, label: "Contact", href: "/contact" },
