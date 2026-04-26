@@ -2,7 +2,6 @@
 
 import { Github, Mail, Phone } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 function Topbar() {
@@ -31,14 +30,10 @@ function Topbar() {
           transition={{ duration: 0.5 }}
         >
           <Link href={"/"} className="group">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={140}
-              height={40}
-              className="object-contain h-8 w-auto"
-              priority
-            />
+            <h1 className="text-lg md:text-xl lg:text-[22px] xl:text-2xl font-bold tracking-tight flex items-baseline gap-1.5 text-nowrap">
+              <span className="text-white group-hover:text-primary transition-colors duration-300">Praveen Kumar</span>
+              <span className="text-primary italic">Reddy</span>
+            </h1>
           </Link>
         </motion.div>
 

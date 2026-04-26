@@ -14,9 +14,6 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "Praveen Kumar Reddy",
   description: "Portfolio of Praveen Kumar Reddy",
-  icons: {
-    icon: "/logo.png",
-  },
 };
 
 export default function RootLayout({
