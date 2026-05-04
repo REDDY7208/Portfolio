@@ -138,9 +138,6 @@ const TestimonialsPage = () => {
           <h2 className="text-5xl lg:text-6xl font-bold tracking-tight">
             What colleagues <span className="text-primary">say.</span>
           </h2>
-          <p className="text-gray-400 max-w-md text-sm leading-relaxed mt-4">
-            Feedback from engineers, architects, and team leads I have worked with across DevOps, MLOps, and cloud infrastructure projects. These are real experiences from real collaborations.
-          </p>
         </div>
 
         {/* Quote Content */}

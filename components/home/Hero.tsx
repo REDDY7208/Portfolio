@@ -22,9 +22,6 @@ const Hero = () => {
             cloud-native infrastructure, and CI/CD pipelines. Expert in
             Kubernetes, Docker, Terraform, and AI model deployment.
           </p>
-          <p className="text-gray-500 max-w-xl mx-auto xl:mx-0 text-sm leading-relaxed">
-            Based in India, I help businesses and engineering teams build robust DevOps foundations — automating infrastructure, streamlining deployments, and bringing AI/ML models from research to production. I have worked across AWS, Google Cloud Platform, and Azure, delivering scalable microservices architectures and reliable cloud-native solutions.
-          </p>
         </div>
 
         <Link href="/works">
