@@ -34,8 +34,10 @@ const WorksPage = () => {
             My projects<span className="text-primary">.</span>
           </h2>
           <p className="text-gray-300 max-w-sm text-sm md:text-base leading-relaxed">
-            Showcasing successful DevOps implementations, MLOps pipelines, and
-            AI/ML platform deployments across various industries and use cases.
+            Showcasing successful DevOps implementations, MLOps pipelines, and AI/ML platform deployments across various industries and use cases.
+          </p>
+          <p className="text-gray-400 max-w-sm text-sm leading-relaxed">
+            From enterprise-grade education platforms built on hybrid cloud infrastructure (AWS + GCP) to automated deployment pipelines handling hundreds of releases — each project reflects a commitment to reliability, security, and scalable architecture. Browse by category to explore the full scope of work.
           </p>
         </div>
       </div>

@@ -55,9 +55,11 @@ const AboutPage = () => {
             DevOps excellence.
           </h2>
           <p className="text-gray-300 max-w-xl text-sm md:text-base leading-relaxed">
-            DevOps Engineer with 2+ years in AI/ML deployment and MLOps
-            automation. Expert in CI/CD pipelines, Kubernetes microservices, and
-            cloud infrastructure.
+            DevOps Engineer with 2+ years of hands-on experience in AI/ML deployment, MLOps automation, and cloud-native infrastructure. I specialize in building reliable CI/CD pipelines, managing Kubernetes microservices at scale, and deploying machine learning models to production environments across AWS, GCP, and Azure.
+          </p>
+
+          <p className="text-gray-400 max-w-xl text-sm leading-relaxed">
+            My background spans the full DevOps lifecycle — from infrastructure provisioning with Terraform and Ansible, to container orchestration with Docker and Kubernetes, to monitoring and observability. I have worked as a DevOps Team Lead at DSAIS (Data Spark AI Solutions), where I led cloud architecture decisions and automated deployment workflows for AI-powered education platforms serving thousands of users.
           </p>
 
           <div className="grid grid-cols-2 gap-4 lg:gap-6 pt-6 max-w-lg">

@@ -102,9 +102,10 @@ const ServicesPage = () => {
             My expertise <span className="text-primary">.</span>
           </h2>
           <p className="text-gray-300 max-w-md text-sm md:text-base leading-relaxed">
-            Specialized DevOps and MLOps services to accelerate your AI/ML
-            projects from development to production with enterprise-grade
-            reliability and scalability.
+            Specialized DevOps and MLOps services to accelerate your AI/ML projects from development to production with enterprise-grade reliability and scalability.
+          </p>
+          <p className="text-gray-400 max-w-md text-sm leading-relaxed">
+            With deep expertise in cloud platforms including AWS, Google Cloud, and Azure, I design and implement end-to-end DevOps solutions — from automated CI/CD pipelines using Jenkins and GitLab CI, to container orchestration with Kubernetes, to infrastructure-as-code using Terraform. Every service is built with security, performance, and cost-efficiency in mind.
           </p>
         </div>
       </div>
